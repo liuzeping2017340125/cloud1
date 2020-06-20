@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.UserMapper">
+    <select id="logincheck" parameterType="com.pojo.User" resultType="com.pojo.User">
+        select * from cd_user where userName=#{userName} and password=#{password}
+    </select>
+   
+   <insert id="register" parameterType="com.pojo.User">
+       insert into 
+       cd_user (userName,password)
+       value(#{userName},#{password})
+    </insert>
+    
+<insert id="addFile" parameterType="com.pojo.File1">
+insert into cd_file values(#{fileId},#{filename},#{type},#{fileTime},#{fileDeletetime},#{userId},#{folderId},#{fileSize},#{status},#{mark},#{fileStore});
+</insert>
+    
+</mapper>
